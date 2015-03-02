@@ -11,7 +11,6 @@ import java.util.Date;
 public class ExampleService {
 
     @RequestMapping(value = "api/time", method = GET, produces = "text/plain")
-    @ApiOperation("Time")
     public String getTime(){
         return new Date().toString();
     }
