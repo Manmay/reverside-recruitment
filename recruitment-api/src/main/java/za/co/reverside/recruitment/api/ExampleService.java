@@ -10,7 +10,7 @@ import java.util.Date;
 @RestController
 public class ExampleService {
 
-    @RequestMapping(value = "api/time", method = GET, produces = "text/plain")
+    @RequestMapping(value = "time", method = GET, produces = "text/plain")
     public String getTime(){
         return new Date().toString();
     }

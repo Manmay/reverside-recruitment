@@ -21,7 +21,7 @@ public class SwaggerConfig {
     @Bean
     public SwaggerSpringMvcPlugin customImplementation() {
         return new SwaggerSpringMvcPlugin(this.springSwaggerConfig).apiInfo(
-                apiInfo()).includePatterns("/api/.*");
+                apiInfo()).includePatterns("/.*");
     }
     private ApiInfo apiInfo() {
         ApiInfo apiInfo = new ApiInfo("Reverside API", "API for Reverside",

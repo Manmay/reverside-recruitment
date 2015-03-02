@@ -1,12 +1,12 @@
 
 
-Run and test demo REST service :
+Run and Test REST service :
+===========================
 
-- Run the rest service
-- Test :
+Start REST Service : mvn spring-boot:run
 
-http://localhost:8080/task
+Access the sandbox : http://localhost:8080
 
-Crate a task :
+Replace URL with : /api-docs and Press Explore
 
-P
+Test :-)
