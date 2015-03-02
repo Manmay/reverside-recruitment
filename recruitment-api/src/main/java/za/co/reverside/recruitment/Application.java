@@ -1,5 +1,6 @@
 package za.co.reverside.recruitment;
 
+import com.mangofactory.swagger.plugin.EnableSwagger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,9 +11,8 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
 
 @ComponentScan
 @EnableAutoConfiguration
-@EnableJpaRepositories
-@Import(RepositoryRestMvcConfiguration.class)
 @ImportResource({"classpath:security-context.xml"})
+@EnableSwagger
 public class Application {
 
     public static void main(String args[]){
