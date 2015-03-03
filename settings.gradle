@@ -1,0 +1,6 @@
+rootProject.name = 'reverside-recruitment'
+
+include 'recruitment-api'
+
+
+
