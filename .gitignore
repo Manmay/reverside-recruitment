@@ -9,4 +9,9 @@ gradlew.bat
 assets
 bin
 gen
-
+.DS_Store
+recruitment-android/res
+recruitment-android/local.properties
+recruitment-android/proguard-project.txt
+recruitment-android/project.properties
+recruitment-android/src/main/ic_launcher-web.png

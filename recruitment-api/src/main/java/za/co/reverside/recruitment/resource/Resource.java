@@ -1,12 +1,10 @@
 package za.co.reverside.recruitment.resource;
 
-import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 public class Resource {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

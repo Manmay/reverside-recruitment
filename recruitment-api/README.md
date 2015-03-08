@@ -3,7 +3,7 @@
 Run and Test REST service :
 ===========================
 
-Start REST Service : mvn spring-boot:run
+Start REST Service : gradle bootRun
 
 Access the sandbox : http://localhost:8080
 
