@@ -1,10 +1,10 @@
-package za.co.reverside.recruitment_android;
+package za.co.reverside.android;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import za.co.reverside.recruitment_android.R;
 
 public class MainActivity extends ActionBarActivity {
 
