@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.reverside.recruitment.repository.UserRepository;
 import za.co.reverside.recruitment.resource.User;
 
+import java.security.Principal;
+
 @RestController
 public class LoginService {
 
@@ -24,14 +26,31 @@ public class LoginService {
         User user = userRepository.findByUserNameAndPassword(username, password);
 
         if (user == null || user.getEnabled().toString().equals("false")) {
-            return "{"+status + String.valueOf(Response.SC_NOT_FOUND) + "}";
+            return "{" + status + String.valueOf(Response.SC_NOT_FOUND) + "}";
 
         } else if (user != null) {
-            return "{"+ status + String.valueOf(Response.SC_OK) + "}";
+            return "{" + status + String.valueOf(Response.SC_OK) + "}";
         } else {
-            return "{"+ status + String.valueOf(Response.SC_INTERNAL_SERVER_ERROR) + "}";
+            return "{" + status + String.valueOf(Response.SC_INTERNAL_SERVER_ERROR) + "}";
+        }
+    }
+
+    @RequestMapping(value = "api/me", produces = "application/json")
+    @ResponseBody
+    public User getUserDetails(Principal principal) {
+
+        String username = principal.getName();
+
+        User user = userRepository.findByUserName(username);
+
+        if (user == null) {
+
+            throw new RuntimeException("User not found");
         }
 
-
+        return user;
     }
+
+
+
 }
