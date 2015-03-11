@@ -23,9 +23,13 @@ public class LoginServiceTest {
     UserRepository mUserRepository;
 
     LoginService loginService;
+    String userName;
+    String password;
 
     @Before
     public void setUp() {
+         userName="testUser";
+         password="testPassword";
         loginService = new LoginService();
         setField(loginService, "userRepository", mUserRepository);
     }
@@ -34,9 +38,9 @@ public class LoginServiceTest {
     public void testLoginWhenUserExistAndEnabled() {
         User mUser = mock(User.class);
         when(mUser.getEnabled()).thenReturn(true).toString();
-        when(mUserRepository.findByUserNameAndPassword("Pradyumna", "12345")).thenReturn(mUser);
+        when(mUserRepository.findByUserNameAndPassword(userName, password)).thenReturn(mUser);
 
-        String result = loginService.login("Pradyumna", "12345");
+        String result = loginService.login(userName, password);
         assertEquals("{status:200}", result);
     }
 
@@ -44,16 +48,16 @@ public class LoginServiceTest {
     public void testLoginWhenUserExistAndDisabled() {
         User mUser = mock(User.class);
         when(mUser.getEnabled()).thenReturn(false).toString();
-        when(mUserRepository.findByUserNameAndPassword("Pradyumna", "12345")).thenReturn(mUser);
+        when(mUserRepository.findByUserNameAndPassword(userName, password)).thenReturn(mUser);
 
-        String result = loginService.login("Pradyumna", "12345");
+        String result = loginService.login(userName, password);
         assertEquals("{status:404}", result);
     }
 
     @Test
     public void testLoginWhenUserNotExist() {
-        when(mUserRepository.findByUserNameAndPassword("Pradyumna", "12345")).thenReturn(null);
-        String result = loginService.login("Pradyumna", "12345");
+        when(mUserRepository.findByUserNameAndPassword(userName, password)).thenReturn(null);
+        String result = loginService.login(userName, password);
         assertEquals("{status:404}", result);
     }
 }
